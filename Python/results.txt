@@ -1,0 +1,54 @@
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ ls
+data.py  olddata.py  __pycache__  PythonHeterodyning.py  Timing.py
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ python3 PythonHeterodyning.py
+There are 100000 samples
+using type <class 'float'>
+========================================
+2024-10-20 16:05:35 - Starting log
+========================================
+========================================
+2024-10-20 16:05:35 - End Program
+Elapsed time: 0:00:00.300332
+========================================
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ python3 PythonHeterodyning.py
+There are 100000 samples
+using type <class 'float'>
+========================================
+2024-10-20 16:05:41 - Starting log
+========================================
+========================================
+2024-10-20 16:05:41 - End Program
+Elapsed time: 0:00:00.311776
+========================================
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ python3 PythonHeterodyning.py
+There are 100000 samples
+using type <class 'float'>
+========================================
+2024-10-20 16:05:44 - Starting log
+========================================
+========================================
+2024-10-20 16:05:44 - End Program
+Elapsed time: 0:00:00.296927
+========================================
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ python3 PythonHeterodyning.py
+There are 100000 samples
+using type <class 'float'>
+========================================
+2024-10-20 16:05:47 - Starting log
+========================================
+========================================
+2024-10-20 16:05:47 - End Program
+Elapsed time: 0:00:00.284985
+========================================
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ python3 PythonHeterodyning.py
+There are 100000 samples
+using type <class 'float'>
+========================================
+2024-10-20 16:05:53 - Starting log
+========================================
+========================================
+2024-10-20 16:05:54 - End Program
+Elapsed time: 0:00:00.293556
+========================================
+pi@raspberrypi:~/Desktop/Embedded_Project/Python $ 
+
