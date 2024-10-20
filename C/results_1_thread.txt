@@ -1,0 +1,31 @@
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 12.0669 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 13.2489 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 14.6198 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 15.4208 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 24.5807 ms
+
