@@ -25,7 +25,7 @@ float: heterodyning
 double: DATA_TYPE = double
 double: heterodyning
 
-long_double: DATA_TYPE = long double
+long_double: DATA_TYPE = "long double"
 long_double: heterodyning
 
 fp16: DATA_TYPE = __fp16
