@@ -1,26 +1,29 @@
-$(OPTFLAGS)
-
 .RECIPEPREFIX +=
 CC = arm-linux-gnueabihf-g++
 CFLAGS = -lm -lrt
 INCLUDE = -ITools
-
 PROG = bin/*
 OBJS = obj/*
+DATA_TYPE = double
+OPTFLAGS = -O2
+
 default:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) -c src/CHeterodyning.c -o obj/CHeterodyning.o
-    $(CC) $(INCLUDE) $(CFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
-    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/Timer.o $(CFLAGS)
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning.c -o obj/CHeterodyning.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/Timer.o $(CFLAGS) $(OPTFLAGS)
+
 threaded:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
-    $(CC) $(INCLUDE) $(CFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
-    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) -pthread
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
+
 run:
     bin/CHeterodyning
+
 run_threaded:
     bin/CHeterodyning_threaded
-   
+
 clean:
     rm -rf $(PROG) $(OBJS)
