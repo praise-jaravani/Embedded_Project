@@ -23,11 +23,11 @@ int main(int argc, char**argv) {
     
     printf("Time: %lf ms\n", t/1e-3);
     
-    // Optional: Print a few results to verify correctness
+    /* // Optional: Print a few results to verify correctness
     printf("First few results:\n");
     for (int i = 0; i < 5 && i < SAMPLE_COUNT; i++) {
         printf("result[%d] = %f\n", i, (double)result[i]);
-    }
+    } */
     
     printf("End Unthreaded Test\n");
     return 0;
