@@ -1,46 +1,52 @@
-pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make clean && make fp16 && make run
+rm -rf bin/* obj/*
+mkdir -p bin obj
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -mfp16-format=ieee -DDATA_TYPE=__fp16 -c src/CHeterodyning.c -o obj/CHeterodyning.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -mfp16-format=ieee -DDATA_TYPE=__fp16 -c src/globals.c -o obj/globals.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -mfp16-format=ieee -c Tools/Timer.cpp -o obj/Timer.o
+arm-linux-gnueabihf-g++ -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o -lm -lrt -mfp16-format=ieee
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: __fp16
+Size of data type: 16 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 11.110464 ms
+Time: 32.195020 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: __fp16
+Size of data type: 16 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 6.175701 ms
+Time: 32.901999 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: __fp16
+Size of data type: 16 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 9.569538 ms
+Time: 34.361954 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: __fp16
+Size of data type: 16 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 7.731626 ms
+Time: 56.385284 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: __fp16
+Size of data type: 16 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 16.842187 ms
+Time: 65.956993 ms
 End Unthreaded Test
 

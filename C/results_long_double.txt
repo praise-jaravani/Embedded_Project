@@ -1,45 +1,52 @@
-pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make clean && make long_double && make run
+rm -rf bin/* obj/*
+mkdir -p bin obj
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE="long double" -c src/CHeterodyning.c -o obj/CHeterodyning.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE="long double" -c src/globals.c -o obj/globals.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -c Tools/Timer.cpp -o obj/Timer.o
+arm-linux-gnueabihf-g++ -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o -lm -lrt
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: long double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 7.357487 ms
+Time: 27.226172 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: long double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 5.462621 ms
+Time: 19.541406 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: long double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 9.139367 ms
+Time: 22.023330 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: long double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 7.877457 ms
+Time: 21.621343 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: long double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 8.370425 ms
+Time: 10.961667 ms
 End Unthreaded Test
+

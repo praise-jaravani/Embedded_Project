@@ -1,46 +1,52 @@
-pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make clean && make double && make run
+rm -rf bin/* obj/*
+mkdir -p bin obj
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE=double -c src/CHeterodyning.c -o obj/CHeterodyning.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE=double -c src/globals.c -o obj/globals.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -c Tools/Timer.cpp -o obj/Timer.o
+arm-linux-gnueabihf-g++ -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o -lm -lrt
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 13.613397 ms
+Time: 25.583278 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 4.331809 ms
+Time: 14.077600 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 15.536314 ms
+Time: 23.486332 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 4.609798 ms
+Time: 20.790408 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: double
+Size of data type: 64 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 20.794085 ms
+Time: 32.620072 ms
 End Unthreaded Test
 

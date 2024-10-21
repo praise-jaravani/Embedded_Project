@@ -1,46 +1,52 @@
-pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make clean && make float && make run
+rm -rf bin/* obj/*
+mkdir -p bin obj
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE=float -c src/CHeterodyning.c -o obj/CHeterodyning.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -DDATA_TYPE=float -c src/globals.c -o obj/globals.o
+arm-linux-gnueabihf-g++ -ITools -lm -lrt -c Tools/Timer.cpp -o obj/Timer.o
+arm-linux-gnueabihf-g++ -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o -lm -lrt
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: float
+Size of data type: 32 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 13.283447 ms
+Time: 7.217802 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: float
+Size of data type: 32 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 6.877713 ms
+Time: 6.389824 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: float
+Size of data type: 32 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 9.354610 ms
+Time: 10.593708 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: float
+Size of data type: 32 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 11.735511 ms
+Time: 6.914809 ms
 End Unthreaded Test
 pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
 bin/CHeterodyning
 Running Unthreaded Test
-Precision sizeof 4
-Size of DATA_TYPE: 32 bits
+Data Type: float
+Size of data type: 32 bits
 Total amount of samples: 100000
 Clock resolution: 1 ns
-Time: 6.083747 ms
+Time: 6.849811 ms
 End Unthreaded Test
 
