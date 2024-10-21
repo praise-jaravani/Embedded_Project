@@ -4,40 +4,37 @@ CFLAGS = -lm -lrt
 INCLUDE = -ITools
 PROG = bin/*
 OBJS = obj/*
-OPTFLAGS = -O0
 
-# Default to float if not specified
-DATA_TYPE ?= FLOAT
+DATA_TYPE ?= float
 
-ifeq ($(DATA_TYPE),FLOAT)
-    TYPE_FLAG = -DUSE_FLOAT
-else ifeq ($(DATA_TYPE),DOUBLE)
-    TYPE_FLAG = -DUSE_DOUBLE
-else ifeq ($(DATA_TYPE),LONG_DOUBLE)
-    TYPE_FLAG = -DUSE_LONG_DOUBLE
-else ifeq ($(DATA_TYPE),FP16)
-    TYPE_FLAG = -DUSE_FP16 -mfp16-format=ieee
-else ifeq ($(DATA_TYPE),FLOAT128)
-    TYPE_FLAG = -DUSE_FLOAT128 -lquadmath
-endif
+default: heterodyning
 
-default:
+heterodyning:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) $(TYPE_FLAG) -c src/CHeterodyning.c -o obj/CHeterodyning.o
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
-    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) $(TYPE_FLAG)
-
-threaded:
-    mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) $(TYPE_FLAG) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
-    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) $(TYPE_FLAG) -pthread
+    $(CC) $(INCLUDE) $(CFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning.c -o obj/CHeterodyning.o
+    $(CC) $(INCLUDE) $(CFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/globals.c -o obj/globals.o
+    $(CC) $(INCLUDE) $(CFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o $(CFLAGS)
 
 run:
     bin/CHeterodyning
 
-run_threaded:
-    bin/CHeterodyning_threaded
+float: DATA_TYPE = float
+float: heterodyning
+
+double: DATA_TYPE = double
+double: heterodyning
+
+long_double: DATA_TYPE = long double
+long_double: heterodyning
+
+fp16: DATA_TYPE = __fp16
+fp16: CFLAGS += -mfp16-format=ieee
+fp16: heterodyning
+
+float128: DATA_TYPE = __float128
+float128: CFLAGS += -mfloat128
+float128: heterodyning
 
 clean:
     rm -rf $(PROG) $(OBJS)
