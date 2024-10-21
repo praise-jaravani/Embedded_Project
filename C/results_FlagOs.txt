@@ -1,0 +1,41 @@
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+bin/CHeterodyning
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 5.036969 ms
+End Unthreaded Test
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+bin/CHeterodyning
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 7.734951 ms
+End Unthreaded Test
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+bin/CHeterodyning
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 5.776963 ms
+End Unthreaded Test
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+bin/CHeterodyning
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 5.156968 ms
+End Unthreaded Test
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run
+bin/CHeterodyning
+Running Unthreaded Test
+Precision sizeof 4
+Total amount of samples: 100000
+Clock resolution: 1 ns
+Time: 4.542971 ms
+End Unthreaded Test
+

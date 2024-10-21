@@ -2,7 +2,7 @@
 CC = arm-linux-gnueabihf-g++
 CFLAGS = -lm -lrt
 INCLUDE = -ITools
-OPTFLAGS = -O0
+OPTFLAGS = -Os
 
 PROG = bin/*
 OBJS = obj/*
