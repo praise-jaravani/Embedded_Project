@@ -4,7 +4,7 @@ CFLAGS = -lm -lrt
 INCLUDE = -ITools
 PROG = bin/*
 OBJS = obj/*
-DATA_TYPE = double
+DATA_TYPE = __float128
 OPTFLAGS = -O2
 
 default:
