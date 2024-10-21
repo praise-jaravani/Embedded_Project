@@ -28,20 +28,20 @@ int main(int argc, char**argv){
 
 #include "CHeterodyning.h"
 
-extern DATA_TYPE data [SAMPLE_COUNT];
-extern DATA_TYPE carrier[SAMPLE_COUNT];
+extern data_t data [SAMPLE_COUNT];
+extern data_t carrier[SAMPLE_COUNT];
 
-DATA_TYPE result [SAMPLE_COUNT];
+data_t result [SAMPLE_COUNT];
 
-int main(int argc, char**argv){
+int main(int argc, char**argv) {
     printf("Running Unthreaded Test\n");
-    printf("Precision sizeof %zu\n", sizeof(DATA_TYPE));
-    printf("Size of DATA_TYPE: %zu bits\n", sizeof(DATA_TYPE) * 8);
+    printf("Precision sizeof %zu bytes\n", sizeof(data_t));
+    printf("Size of data_t: %zu bits\n", sizeof(data_t) * 8);
     
     printf("Total amount of samples: %zu\n", sizeof(data) / sizeof(data[0]));
     
     tic(); // start the timer
-    for (int i = 0; i < SAMPLE_COUNT; i++ ){
+    for (int i = 0; i < SAMPLE_COUNT; i++ ) {
         result[i] = data[i] * carrier[i];
     }
     double t = toc();
