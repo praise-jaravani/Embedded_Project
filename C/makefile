@@ -9,13 +9,13 @@ OPTFLAGS = -O2
 
 default:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning.c -o obj/CHeterodyning.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning.c -o obj/CHeterodyning.o
     $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
     $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/Timer.o $(CFLAGS) $(OPTFLAGS)
 
 threaded:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -DATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
     $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
     $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
 
