@@ -8,6 +8,7 @@ float result [SAMPLE_COUNT];
 int main(int argc, char**argv){
     printf("Running Unthreaded Test\n");
     printf("Precision sizeof %ld\n", sizeof(float));
+    printf("Size of float: %zu bits\n", sizeof(float) * 8);
     
 
     printf("Total amount of samples: %ld\n", sizeof(data) / sizeof(data[0]));
