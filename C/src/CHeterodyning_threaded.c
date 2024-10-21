@@ -32,6 +32,7 @@ int main(int argc, char** argv){
 
     // Printing stuff is a critical section...
     pthread_mutex_lock(&Mutex);
+    printf("Size of float: %zu bits\n", sizeof(float) * 8);
     printf("Threads created :-)\n");
     pthread_mutex_unlock(&Mutex);
 
