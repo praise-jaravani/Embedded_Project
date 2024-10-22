@@ -1,0 +1,71 @@
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.4699 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 10.2616 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.30291 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 3.23387 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.3019 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 7.16171 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.74489 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.16391 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 2.17291 ms
+pi@raspberrypi:~/Desktop/Embedded_Project/C $ make run_threaded
+bin/CHeterodyning_threaded
+Clock resolution: 1 ns
+Size of float: 32 bits
+Threads created :-)
+All threads have quit
+Time taken for threads to run = 9.8536 ms
+
