@@ -5,36 +5,48 @@ INCLUDE = -ITools
 PROG = bin/*
 OBJS = obj/*
 
-DATA_TYPE ?= float
+# Default optimization flag
+OPTFLAGS ?= -O0
 
-default: heterodyning
-
-heterodyning:
+# Targets for different optimization combinations
+combination_a: OPTFLAGS = -Os
+combination_a:
     mkdir -p bin obj
-    $(CC) $(INCLUDE) $(CFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/CHeterodyning.c -o obj/CHeterodyning.o
-    $(CC) $(INCLUDE) $(CFLAGS) -DDATA_TYPE=$(DATA_TYPE) -c src/globals.c -o obj/globals.o
-    $(CC) $(INCLUDE) $(CFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
-    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/globals.o obj/Timer.o $(CFLAGS)
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
+
+combination_b: OPTFLAGS = -O2
+combination_b:
+    mkdir -p bin obj
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
+
+combination_c: OPTFLAGS = -O1
+combination_c:
+    mkdir -p bin obj
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
+
+default:
+    mkdir -p bin obj
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c src/CHeterodyning.c -o obj/CHeterodyning.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning obj/CHeterodyning.o obj/Timer.o $(CFLAGS) $(OPTFLAGS)
+
+threaded:
+    mkdir -p bin obj
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c src/CHeterodyning_threaded.c -o obj/CHeterodyning_threaded.o
+    $(CC) $(INCLUDE) $(CFLAGS) $(OPTFLAGS) -c Tools/Timer.cpp -o obj/Timer.o
+    $(CC) -o bin/CHeterodyning_threaded obj/CHeterodyning_threaded.o obj/Timer.o $(CFLAGS) $(OPTFLAGS) -pthread
 
 run:
     bin/CHeterodyning
 
-float: DATA_TYPE = float
-float: heterodyning
-
-double: DATA_TYPE = double
-double: heterodyning
-
-long_double: DATA_TYPE = "long double"
-long_double: heterodyning
-
-fp16: DATA_TYPE = __fp16
-fp16: CFLAGS += -mfp16-format=ieee
-fp16: heterodyning
-
-float128: DATA_TYPE = __float128
-float128: CFLAGS += -mfloat128
-float128: heterodyning
-
+run_threaded:
+    bin/CHeterodyning_threaded
+   
 clean:
     rm -rf $(PROG) $(OBJS)
